@@ -1,15 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { newtClient } from "../lib/newt";
-// import type { Article } from "../lib/newt";
+import { newtClient } from "../lib/newt";
+import type { Article } from "../lib/newt";
 
-// const { items: articles } = await newtClient.getContents<Article>({
-//   appUid: "blog",
-//   modelUid: "article",
-//   query: {
-//     select: ["title", "slug", "body"],
-//   },
-// });
+const { items: articles } = await newtClient.getContents<Article>({
+  appUid: "blog",
+  modelUid: "article",
+  query: {
+    select: ["title", "slug", "body"],
+  },
+});
 ---
 
 <Layout title="blog">
@@ -22,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
   </nav>
   <h1>Blog</h1>
   <main>
-    <!-- <ul>
+    <ul>
       {
         articles.map((article) => {
           return (
@@ -32,6 +32,6 @@ import Layout from "../layouts/Layout.astro";
           );
         })
       }
-    </ul> -->
+    </ul>
   </main>
 </Layout>
